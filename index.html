@@ -36,9 +36,6 @@
       transition: background var(--transition-speed), color var(--transition-speed);
     }
     
-    /* Toggle Switch Styles (removed toggle functionality) */
-    /* (The toggle switch has been removed from settings) */
-    
     /* Toast Notification Container */
     #notificationContainer {
       position: fixed;
@@ -595,7 +592,7 @@
               </div>
               <div class="profile-id" id="profileId">Citizen ID:</div>
             </div>
-            <!-- Removed the update profile picture button -->
+            <!-- Update profile picture button removed -->
             <input type="file" id="profileImageInput" accept="image/*" style="display:none;" onchange="updateProfileImage(event)" />
             <br/><br/>
             <button onclick="clearHistory()">Clear History</button>
@@ -608,12 +605,12 @@
       <!-- Bottom Navigation -->
       <div class="app-footer">
         <div class="nav-button active" onclick="showScreen('homeScreen', this)">
-          <!-- Changed Home Button to home.png -->
+          <!-- Home Button using home.png -->
           <img src="home.png" alt="Home" style="width:32px; height:32px;">
           <span id="homeNotificationDot" class="notification-dot" style="display:none;"></span>
         </div>
         <div class="nav-button" onclick="showScreen('chatScreen', this)">
-          <!-- Changed Chat Button to chat.png -->
+          <!-- Chat Button using chat.png -->
           <img src="chat.png" alt="Chat" style="width:32px; height:32px;">
           <span id="chatNotificationDot" class="notification-dot" style="display:none;"></span>
         </div>
@@ -621,7 +618,8 @@
       
       <!-- Floating Camera Button -->
       <div id="cameraButton" class="camera-button" onclick="openWebcamModal()" title="Quick Report">
-        📷
+        <!-- Changed camera logo to use cam.png -->
+        <img src="cam.png" alt="Camera" style="width:40px; height:40px;">
       </div>
     </div>
   </div>
@@ -728,7 +726,8 @@
     /* Webcam Modal Functions */
     function openWebcamModal() {
       document.getElementById('webcamModal').style.display = 'flex';
-      navigator.mediaDevices.getUserMedia({ video: true })
+      // Request back camera by setting facingMode to "environment"
+      navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
         .then(stream => {
           webcamStream = stream;
           document.getElementById('webcamVideo').srcObject = stream;
@@ -1174,4 +1173,3 @@
   </script>
 </body>
 </html>
-
